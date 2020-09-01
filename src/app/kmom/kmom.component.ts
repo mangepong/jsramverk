@@ -13,7 +13,7 @@ export class KmomComponent implements AfterViewInit {
 
   ngAfterViewInit() {
       var path = this.route.snapshot.routeConfig.path;
-      var kmom01 = "<h4> Me sida för jsramverk </h4> <p> För att starta sidan behöver du skriva `ng serve -o` då kommer en filk att öppnas i en webbläsare. </p>" +
+      var kmom01 = "<h4> Me sida för jsramverk </h4> <p> För att starta sidan behöver du först installera alla node moduler med `npm install` sen kan du skriva `ng serve -o` och då kommer en filk att öppnas i en webbläsare. </p>" +
      "<h4> Installationer av modulerna </h4>" +
      "<p> I terminalen så skriver du `npm install -g @angular/cli` för att först ladda ner angular cli. För att sen skapa ditt projekt så kör du `ng new my-app`. </p>" +
      "<p> Nu kommer den att ska ett angular projekt som du kan öppna med det kommando som står i början: `ng serve -o` </p>" +
