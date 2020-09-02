@@ -1,15 +1,19 @@
 .omtext {
 
-    text-align: center;
+    /* text-align: center; */
     margin: auto;
 }
 
 .homecontent {
     margin: auto;
     margin-top: 5%;
-    width: 50%;
+    width: 33%;
     padding: 20px;
-    text-align: center;
+    /* text-align: center; */
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
+}
+
+.homecontent h3 {
+    text-align: center;
 }
