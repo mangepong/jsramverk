@@ -12,7 +12,7 @@ export class KmomComponent implements AfterViewInit {
   constructor(private route: ActivatedRoute) { }
 
   ngAfterViewInit() {
-      var path = this.route.snapshot.routeConfig.path;
+      var kmom = this.route.snapshot.paramMap.get("id");
       var kmom01 = "<h4> Me sida för jsramverk </h4> <p> För att starta sidan behöver du först installera alla node moduler med <code>npm install</code> sen kan du skriva <code>ng serve -o</code> och då kommer en filk att öppnas i en webbläsare. </p>" +
      "<h4> Development server </h4>" +
      "<p> Run <code>ng serve</code> for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files. </p>" +
@@ -30,8 +30,8 @@ export class KmomComponent implements AfterViewInit {
      "<p> https://github.com/mangepong/jsramverk </p>"
 
 
-    if(path == "reports/kmom01") {
-        console.log("kmom01");
+     console.log(this.route.snapshot.routeConfig.path);
+    if(kmom == "1") {
         document.getElementById('content').innerHTML = kmom01;
     }
   }

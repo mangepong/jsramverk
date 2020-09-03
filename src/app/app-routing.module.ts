@@ -5,7 +5,7 @@ import { KmomComponent } from './kmom/kmom.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'reports/kmom01', component: KmomComponent },
+    { path: 'reports/week/:id', component: KmomComponent },
 ];
 
 @NgModule({
