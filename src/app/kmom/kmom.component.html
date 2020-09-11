@@ -1,5 +1,9 @@
 
 <div class="info">
-    <h3 id="title">Kmom01</h3>
-    <p id="content"></p>
+    <ng-template [ngIf]="reports">
+        <h3 id="title">{{ reports.data.title }}</h3>
+    </ng-template>
+    <ng-template [ngIf]="reports">
+        <div id="content" [innerHTML]="reports.data.text"></div>
+    </ng-template>
 </div>
