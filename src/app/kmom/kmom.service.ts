@@ -8,6 +8,6 @@ export class KmomService {
   constructor(private http: HttpClient) { }
 
   getReports(kmom) {
-    return this.http.get('http://localhost:1337/reports/week/' + kmom);
+    return this.http.get('https://me-api.mangepongjs.me/reports/week/' + kmom);
   }
 }

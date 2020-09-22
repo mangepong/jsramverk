@@ -15,11 +15,11 @@ export class RegisterService {
   ) { }
 
     register(email, password) {
-        return this.http.post(`http://localhost:1337/register`, {email: email, password: password});
+        return this.http.post(`https://me-api.mangepongjs.me/register`, {email: email, password: password});
     }
 
     login(email, password) {
-          return this.http.post(`http://localhost:1337/login`, {email: email, password: password})
+          return this.http.post(`https://me-api.mangepongjs.me/login`, {email: email, password: password})
               .pipe(map(user => {
                   localStorage.setItem('user', JSON.stringify(user));
                   return user;
@@ -37,6 +37,6 @@ export class RegisterService {
         'x-access-token': JSON.parse(localStorage.getItem("user")).jwt_token });
         let options = { headers: headers };
 
-        return this.http.post(`http://localhost:1337/reports`, {title: title, text: text}, options);
+        return this.http.post(`https://me-api.mangepongjs.me/reports`, {title: title, text: text}, options);
     }
 }
