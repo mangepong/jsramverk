@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "mocha test/*.js",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "deploy": "ng build --prod && rsync -av dist/me-jsramverk/* deploy@mangepongjs.me:/var/www/jsramverk-frontend/html/"
@@ -20,6 +20,7 @@
     "@angular/platform-browser": "~10.0.14",
     "@angular/platform-browser-dynamic": "~10.0.14",
     "@angular/router": "~10.0.14",
+    "geckodriver": "^1.20.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
@@ -42,6 +43,9 @@
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~3.9.5"
+    "typescript": "~3.9.5",
+    "mocha": "^4.1.0",
+    "selenium-webdriver": "^3.6.0",
+    "http-server": "^0.11.1"
   }
 }
