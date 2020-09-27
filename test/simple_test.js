@@ -7,6 +7,7 @@ const By = require("selenium-webdriver").By;
 const assert = require("assert");
 const test = require("selenium-webdriver/testing");
 var webdriver = require("selenium-webdriver");
+const firefox = require("selenium-webdriver/firefox");
 let browser;
 
 test.describe("Test", function() {
@@ -15,7 +16,8 @@ test.describe("Test", function() {
         this.timeout(20000);
         // browser = new webdriver.Builder().
         //     withCapabilities(webdriver.Capabilities.firefox()).build();
-        browser = new webdriver.Builder().forBrowser('firefox').build();
+        const screen = { width: 1920, height: 1080};
+        browser = new webdriver.Builder().forBrowser('firefox').setFirefoxOptions(new firefox.Options().headless().windowSize(screen)).build();
         browser.get("https://mangepongjs.me/");
         done();
     });
