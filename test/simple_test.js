@@ -13,9 +13,9 @@ test.describe("Test", function() {
 
     test.beforeEach(function(done) {
         this.timeout(20000);
-        browser = new webdriver.Builder().
-            withCapabilities(webdriver.Capabilities.firefox()).build();
-
+        // browser = new webdriver.Builder().
+        //     withCapabilities(webdriver.Capabilities.firefox()).build();
+        browser = new webdriver.Builder().forBrowser('firefox').build();
         browser.get("https://mangepongjs.me/");
         done();
     });
