@@ -1,3 +1,8 @@
+
+[![Build Status](https://travis-ci.org/mangepong/jsramverk.svg?branch=master)](https://travis-ci.org/mangepong/jsramverk)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mangepong/jsramverk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mangepong/jsramverk/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/mangepong/jsramverk/badges/build.png?b=master)](https://scrutinizer-ci.com/g/mangepong/jsramverk/build-status/master)
+
 # Me sida för jsramverk
 
 För att starta sidan behöver du skriva `ng serve -o` då kommer en filk att öppnas i en webbläsare.
