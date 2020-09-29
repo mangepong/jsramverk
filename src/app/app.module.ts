@@ -14,6 +14,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ReportsComponent } from './reports/reports.component';
 import { LogoutComponent } from './logout/logout.component';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { ChatComponent } from './chat/chat.component';
+import { FormsModule } from "@angular/forms";
+
+const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
 @NgModule({
   declarations: [
@@ -23,13 +28,16 @@ import { LogoutComponent } from './logout/logout.component';
     RegisterComponent,
     LoginComponent,
     ReportsComponent,
-    LogoutComponent
+    LogoutComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SocketIoModule.forRoot(config),
+    FormsModule
   ],
   providers: [
       KmomService,
