@@ -22,29 +22,18 @@ export class ReportsComponent implements OnInit {
 
   ngOnInit() {
       // reloads the page
+
+      if (!localStorage.getItem("user")) {
+          this.router.navigate(['/login']);
+      }
+
       if(location.search.indexOf('r') < 0){
           var hash = window.location.hash;
           var loc = window.location.href.replace(hash, '');
           loc += (loc.indexOf('?') < 0? '?' : '&') + 'r';
           window.location.href = loc + hash;;
       }
-      if (localStorage.getItem("user")) {
-          var login = document.getElementById("login");
-          var login2 = document.getElementById("login2");
-
-          login.style.display = "None";
-          login2.style.display = "None";
-      } else {
-          var login = document.getElementById("reports");
-          var login2 = document.getElementById("reports2");
-          var logout = document.getElementById("logout");
-          var logout2 = document.getElementById("logout2");
-
-          logout.style.display = "None";
-          logout2.style.display = "None";
-          login.style.display = "None";
-          login2.style.display = "None";
-      }
+    
       this.form = this.formBuilder.group({
             title: ['', Validators.required],
             text: ['', Validators.required],

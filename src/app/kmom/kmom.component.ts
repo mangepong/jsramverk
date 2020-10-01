@@ -21,18 +21,14 @@ export class KmomComponent implements OnInit {
             login.style.display = "None";
             login2.style.display = "None";
         } else {
-            var login = document.getElementById("reports");
-            var login2 = document.getElementById("reports2");
             var logout = document.getElementById("logout");
             var logout2 = document.getElementById("logout2");
 
             logout.style.display = "None";
             logout2.style.display = "None";
-            login.style.display = "None";
-            login2.style.display = "None";
         }
 
-      var kmom = this.route.snapshot.paramMap.get("id");
+     var kmom = this.route.snapshot.paramMap.get("id");
      this.kmomService.getReports(kmom)
         .subscribe((data) => {
           this.reports = data;

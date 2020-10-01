@@ -17,6 +17,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ChatComponent } from './chat/chat.component';
 import { FormsModule } from "@angular/forms";
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
 
 const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
@@ -37,7 +38,8 @@ const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
     AppRoutingModule,
     ReactiveFormsModule,
     SocketIoModule.forRoot(config),
-    FormsModule
+    FormsModule,
+    PickerModule
   ],
   providers: [
       KmomService,

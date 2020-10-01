@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as io from "socket.io-client";
+import { Router } from '@angular/router';
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
 
-const SOCKET_ENDPOINT = 'localhost:1337';
+const SOCKET_ENDPOINT = 'https://me-api.mangepongjs.me/';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -11,37 +13,44 @@ export class ChatComponent implements OnInit {
   socket;
   message: string;
   nickname: string = "Unknown";
-  constructor() { }
+  showEmojiPicker = false;
+  sets = [
+    'native',
+    'google',
+    'twitter',
+    'facebook',
+    'emojione',
+    'apple',
+    'messenger'
+  ]
+
+  set = 'google';
+  constructor(private router: Router) { }
 
   ngOnInit() {
-      this.setupSocketConnection();
+
+      if (!localStorage.getItem("user")) {
+          this.router.navigate(['/login']);
+      }
       if (localStorage.getItem("user")) {
           var login = document.getElementById("login");
           var login2 = document.getElementById("login2");
 
-          var report = document.getElementById("reports");
-          var report2 = document.getElementById("reports2");
-
           login.style.display = "None";
           login2.style.display = "None";
       } else {
-          var login = document.getElementById("reports");
-          var login2 = document.getElementById("reports2");
           var logout = document.getElementById("logout");
           var logout2 = document.getElementById("logout2");
 
           logout.style.display = "None";
           logout2.style.display = "None";
-          login.style.display = "None";
-          login2.style.display = "None";
       }
   }
 
-  // setNickname() {
-  //     document.getElementById("nickname").value = "";
-  // }
+
 
   setupSocketConnection() {
+      console.log("User connected");
       let date = new Date();
       let options = {
           hour: "2-digit", minute: "2-digit"
@@ -57,10 +66,25 @@ export class ChatComponent implements OnInit {
           element.style.padding =  '15px 30px';
           element.style.float = 'right';
           element.style.margin = '10px';
+          element.style.display = 'block';
           document.getElementById('message-list').appendChild(element);
+          element.scrollIntoView(false);
       }
   });
  }
+
+ setNickname() {
+     this.setupSocketConnection();
+     let date = new Date();
+     let options = {
+         hour: "2-digit", minute: "2-digit"
+     };
+     (document.getElementById('box') as HTMLButtonElement).style.display = "None";
+     (document.getElementById('chat-mess') as HTMLButtonElement).style.display = "Block";
+     this.message = this.nickname + " har gått med i chatten.";
+     this.sendMessage()
+ }
+
  sendMessage() {
      let date = new Date();
      let options = {
@@ -70,12 +94,30 @@ export class ChatComponent implements OnInit {
      const element = document.createElement('li');
      element.className = "chatbox";
      element.innerHTML = this.message + "<p id='time'>" + date.toLocaleTimeString("swe-sv", options) + "</p>" + "<p id='time'>" + this.nickname + "</p>";
-     element.style.background = 'white';
+     element.style.background = '#38EE2F';
      element.style.padding =  '10px 15px';
      element.style.margin = '10px';
      element.style.float = 'left';
-
+     element.style.display = 'block';
      document.getElementById('message-list').appendChild(element);
      this.message = '';
+     element.scrollIntoView(false);
   }
+
+  toggleEmojiPicker() {
+    console.log(this.showEmojiPicker);
+        this.showEmojiPicker = !this.showEmojiPicker;
+  }
+
+  addEmoji(event) {
+    console.log(this.message)
+    const { message } = this;
+    console.log(message);
+    console.log(`${event.emoji.native}`)
+    const text = `${message}${event.emoji.native}`;
+
+    this.message = text;
+    this.showEmojiPicker = false;
+  }
+
 }

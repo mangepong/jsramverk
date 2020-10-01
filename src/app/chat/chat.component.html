@@ -1,15 +1,18 @@
-<div class="chat-messages">
+<div class="chat-messages" id="chat-mess">
    <div class="chat-messages-show-container">
      <ul id="message-list" class="chat-messages-show-list">
      </ul>
    </div>
-   <div class="chat-messages-create-container">
+   <div id="scroll" class="chat-messages-create-container">
      <input id="new-message" class="chat-messages-create-input" type="text" [(ngModel)]="message" (keydown.enter)="sendMessage()">
+     <button class="emoji-button" (click) ="toggleEmojiPicker()"> 😀</button>
+     <emoji-mart class="emoji-mart" set="{{set}}" *ngIf="showEmojiPicker" (emojiSelect)="addEmoji($event)" title="Pick your emoji…"></emoji-mart>
      <button  class="chat-messages-create-button" (click)="sendMessage()"> Send </button>
    </div>
 </div>
 
-<div class="nick-name-box">
+<div class="nick-name-box" id="box">
     <label class="label-nick">Set Nickname</label>
-  <input id="nickname" class="nickname-input" type="text" [(ngModel)]="nickname">
+  <input id="nickname" class="nickname-input" type="text" [(ngModel)]="nickname" (keydown.enter)="setNickname()">
+  <button  class="nickname-button" (click)="setNickname()"> Accept </button>
 </div>

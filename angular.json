@@ -13,6 +13,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+             "allowedCommonJsDependencies": [
+                "socket.io-client"
+              ],
             "outputPath": "dist/me-jsramverk",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -62,7 +65,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "me-jsramverk:build"
+            "browserTarget": "me-jsramverk:build",
           },
           "configurations": {
             "production": {
@@ -88,7 +91,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/@ctrl/ngx-emoji-mart/picker.css",
+              "node_modules/skeleton-css/css/skeleton.css",
+              "node_modules/skeleton-css/css/normalize.css"
             ],
             "scripts": [
                 "src/client.js"

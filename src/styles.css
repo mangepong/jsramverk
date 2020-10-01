@@ -1,3 +1,5 @@
+@import '~@ctrl/ngx-emoji-mart/picker';
+
 #time {
     font-size: 11px;
     text-align: right;
@@ -10,19 +12,19 @@
     padding: none;
 }
 
+.chat-messages {
+    display: None;
+}
+
 .chatbox {
     border-radius: 10px;
     box-shadow: 5px 5px #888888;
-    width: 300px;
+    width: 60%;
 }
 
 html {
     font-family: 'Open Sans', sans-serif;
-    /* background-image: url("assets/img/background2.jpg"); */
-    /* background-repeat: no-repeat; */
     width: 100%;
-    /* background-position: top; */
-    /* background-size: cover; */
     background-color: white;
 }
 
@@ -104,4 +106,10 @@ a {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+@media screen and (max-width: 992px) {
+    .chatbox {
+        width: 90%;
+    }
 }
