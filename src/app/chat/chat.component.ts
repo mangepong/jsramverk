@@ -30,6 +30,7 @@ export class ChatComponent implements OnInit {
   ngOnInit() {
 
       if (!localStorage.getItem("user")) {
+          alert("You need to login first!");
           this.router.navigate(['/login']);
       }
       if (localStorage.getItem("user")) {

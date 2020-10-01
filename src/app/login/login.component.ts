@@ -31,9 +31,13 @@ export class LoginComponent implements OnInit {
           login2.style.display = "None";
       } else {
 
+          var reports = document.getElementById("reports");
+          var reports1 = document.getElementById("reports2");
           var logout = document.getElementById("logout");
           var logout2 = document.getElementById("logout2");
 
+          reports1.style.display = "None";
+          reports.style.display = "None";
           logout.style.display = "None";
           logout2.style.display = "None";
 

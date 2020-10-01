@@ -24,6 +24,7 @@ export class ReportsComponent implements OnInit {
       // reloads the page
 
       if (!localStorage.getItem("user")) {
+          alert("You need to login first!");
           this.router.navigate(['/login']);
       }
 
@@ -33,7 +34,7 @@ export class ReportsComponent implements OnInit {
           loc += (loc.indexOf('?') < 0? '?' : '&') + 'r';
           window.location.href = loc + hash;;
       }
-    
+
       this.form = this.formBuilder.group({
             title: ['', Validators.required],
             text: ['', Validators.required],
