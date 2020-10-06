@@ -18,6 +18,7 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ChatComponent } from './chat/chat.component';
 import { FormsModule } from "@angular/forms";
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
+import { LogComponent } from './log/log.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
@@ -30,7 +31,8 @@ const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
     LoginComponent,
     ReportsComponent,
     LogoutComponent,
-    ChatComponent
+    ChatComponent,
+    LogComponent
   ],
   imports: [
     BrowserModule,
