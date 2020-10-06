@@ -91,7 +91,7 @@ export class ChatComponent implements OnInit {
      let options = {
          hour: "2-digit", minute: "2-digit"
     };
-     this.socket.emit('message', this.message, this.nickname);
+     this.socket.emit('message', this.message, this.nickname, date.toLocaleTimeString("swe-sv", options);
      const element = document.createElement('li');
      element.className = "chatbox";
      element.innerHTML = this.message + "<p id='time'>" + date.toLocaleTimeString("swe-sv", options) + "</p>" + "<p id='time'>" + this.nickname + "</p>";
